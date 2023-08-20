@@ -1,5 +1,6 @@
-package com.uleos.cyprus.panache;
+package com.uleos.cyprus.panache.repository;
 
+import com.uleos.cyprus.panache.model.Publisher;
 import io.quarkus.test.TestTransaction;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

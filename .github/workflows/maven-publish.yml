@@ -45,7 +45,7 @@ jobs:
       run: mkdir dist && cp vintage-store/target/*.jar dist
     - uses: actions/upload-artifact@v3
       with:
-            name: dependecycheck
+            name: vintage-store
             path: dist  
         
 

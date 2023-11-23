@@ -38,6 +38,13 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Integrationtest with Maven
-      run: mvn -B verify --file pom.xml  
+      run: mvn -B verify --file pom.xml
+    - name: store artefact
+      run: mkdir dist && cp target/*.jar dist
+    - uses: actions/upload-artifact@v3
+      with:
+            name: dependecycheck
+            path: dist  
+        
 
     

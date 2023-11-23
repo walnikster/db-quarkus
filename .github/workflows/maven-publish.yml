@@ -39,7 +39,9 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Integrationtest with Maven
       run: mvn -B verify --file pom.xml
-    - name: store artefact
+    - name: list artefact
+      run: ls target/
+    - name: store artefacts
       run: mkdir dist && cp target/*.jar dist
     - uses: actions/upload-artifact@v3
       with:

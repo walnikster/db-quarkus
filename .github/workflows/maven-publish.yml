@@ -40,9 +40,9 @@ jobs:
     - name: Integrationtest with Maven
       run: mvn -B verify --file pom.xml
     - name: list artefact
-      run: ls 
+      run: ls vintage-store/target
     - name: store artefacts
-      run: mkdir dist && cp target/*.jar dist
+      run: mkdir dist && cp vintage-store/target/*.jar dist
     - uses: actions/upload-artifact@v3
       with:
             name: dependecycheck

@@ -41,7 +41,7 @@ jobs:
     - name: get inputs
       run: echo "${{ github.event.inputs.native }} ${{ github.event.inputs.native == 'T' }} ${{ github.event.inputs.native == 'F' }}"
     - name: Set up Graal VM 17
-      if: ${{ !!github.event.inputs.check }}
+      if: github.event.inputs.check 
       uses: graalvm/setup-graalvm@v1
       with:
         java-version: '17' # for a specific JDK 17; or '17' for the latest JDK 17

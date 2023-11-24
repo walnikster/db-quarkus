@@ -28,7 +28,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - name: Set up Graal VM 17
-    - uses: graalvm/setup-graalvm@v1
+      uses: graalvm/setup-graalvm@v1
       with:
         java-version: '17' # for a specific JDK 17; or '17' for the latest JDK 17
         distribution: 'graalvm' # New 'distribution' option

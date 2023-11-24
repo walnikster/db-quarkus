@@ -42,7 +42,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Build native binary
-      run: mvn -B package -Pnative --file pom.xml  
+      run: mvn -B package -Dmaven.test.skip=true -Pnative --file pom.xml  
     - name: list artefact
       run: ls -ltr vintage-store/target
     - name: store artefacts

@@ -27,6 +27,7 @@ jobs:
         distribution: 'corretto'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
+    - name: Set up Graal VM 17
     - uses: graalvm/setup-graalvm@v1
       with:
         java-version: '17' # for a specific JDK 17; or '17' for the latest JDK 17
@@ -40,12 +41,12 @@ jobs:
           ${{ runner.os }}-maven-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Integrationtest with Maven
+    - name: Build native binary
       run: mvn -B package -Pnative --file pom.xml  
     - name: list artefact
-      run: ls vintage-store/target
+      run: ls -ltr vintage-store/target
     - name: store artefacts
-      run: mkdir dist && cp vintage-store/target/*.jar dist
+      run: mkdir dist && cp vintage-store/target/*.jar dist && cp vintage-store/target/*runner dist
     - uses: actions/upload-artifact@v3
       with:
             name: vintage-store

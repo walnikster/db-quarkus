@@ -16,6 +16,11 @@ on:
           - F
         required: true
         default: F
+      check:
+        type: boolean
+        description: check y/n
+        
+    
       
 jobs:
   build:
@@ -26,6 +31,8 @@ jobs:
       packages: write
 
     steps:
+    - name: Check?
+      run: echo "boolean is ${{ github.event.inputs.check }}"
     - uses: actions/checkout@v3
     - name: Set up JDK 17
       uses: actions/setup-java@v3

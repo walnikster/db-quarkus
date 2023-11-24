@@ -12,10 +12,10 @@ on:
         type: choice
         description: build native
         options:
-          - "TRUE"
-          - "FALSE"
+          - 'TRUE'
+          - 'FALSE'
         required: true
-        default: "FALSE"
+        default: 'FALSE'
       
 jobs:
   build:

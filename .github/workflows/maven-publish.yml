@@ -7,8 +7,13 @@ on:
   release:
     types: [created]
   workflow_dispatch: 
-
-  
+    inputs:
+      name:
+        type: boolean
+        description: build native
+      native:
+        required: true
+ 
 
 jobs:
   build:
@@ -42,11 +47,15 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Build native binary
+      if: github.event.inputs.native
       run: mvn -B package -Dmaven.test.skip=true -Pnative --file pom.xml  
     - name: list artefact
       run: ls -ltr vintage-store/target
     - name: store artefacts
-      run: mkdir dist && cp vintage-store/target/*.jar dist && cp vintage-store/target/*runner dist
+      run: mkdir dist && cp vintage-store/target/*.jar dist
+    - name: store native artefacts
+      if: github.event.inputs.native
+      run: cp vintage-store/target/*runner dist  
     - uses: actions/upload-artifact@v3
       with:
             name: vintage-store

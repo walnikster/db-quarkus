@@ -16,20 +16,14 @@ on:
           - F
         required: true
         default: F
-      check:
-        type: boolean
-        description: check y/n
       
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
-    - name: Check?
-      run: echo "boolean is ${{ github.event.inputs.check }}"
     - uses: actions/checkout@v3
     - name: Set up JDK 17
       uses: actions/setup-java@v3
@@ -41,7 +35,7 @@ jobs:
     - name: get inputs
       run: echo "${{ github.event.inputs.native }} ${{ github.event.inputs.native == 'T' }} ${{ github.event.inputs.native == 'F' }}"
     - name: Set up Graal VM 17
-      if: github.event.inputs.check 
+      if:  ${{ github.event.inputs.native == 'T' }}
       uses: graalvm/setup-graalvm@v1
       with:
         java-version: '17' # for a specific JDK 17; or '17' for the latest JDK 17

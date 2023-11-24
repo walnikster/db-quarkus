@@ -12,8 +12,6 @@ on:
         type: boolean
         description: build native
       
- 
-
 jobs:
   build:
 
@@ -32,7 +30,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     - name: get inputs
-      run: echo "${{ github.workspace }} ${{ github.event.inputs }} "
+      run: echo "${{ fromJSON(github.event.inputs) }}"
     - name: Set up Graal VM 17
       if: ${{ github.event.inputs.native == true }}
       uses: graalvm/setup-graalvm@v1

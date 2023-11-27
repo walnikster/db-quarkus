@@ -76,7 +76,11 @@ jobs:
     - name: build site
       run: mvn -B clean site --file pom.xml
     - name: copy and assemble site
-      run: mkdir mysite && cp -r ./target/site mysite && cp -r ./customer/target/site mysite && cp -r ./artist/target/site mysite && cp -r ./vintage-store/target/site mysite 
+      run: | 
+        mkdir mysite && cp -r ./target/site mysite && 
+        mkdir mysite/customer && cp -r ./customer/target/site mysite/customer && 
+        mkdir mysite/artist && cp -r ./artist/target/site mysite/artist &&
+        mkdir mysite/vintage-store && cp -r ./vintage-store/target/site mysite/vintage-store 
     - name: Build with Jekyll
       uses: actions/jekyll-build-pages@v1
       with:

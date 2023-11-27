@@ -78,7 +78,6 @@ jobs:
     - name: copy and assemble site
       run: | 
         ls -ltra &&
-        tree . &&
         mkdir mysite && cp ./target/site mysite && 
         mkdir mysite/customer && cp ./customer/target/site mysite/customer && 
         mkdir mysite/artist && cp ./artist/target/site mysite/artist &&

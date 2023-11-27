@@ -12,6 +12,11 @@
         <module>customer</module>
         <module>vintage-store</module>
     </modules>
+    <scm>
+       <connection>scm:git:https://github.com/walnikster/db-quarkus/</connection>
+       <developerConnection>scm:git:https://github.com/walnikster/db-quarkus/</developerConnection>
+       <url>scm:git:https://github.com/walnikster/db-quarkus/</url>
+    </scm>
     <build>
         <plugins>
             <plugin>

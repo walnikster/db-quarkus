@@ -17,6 +17,11 @@
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.2.2</surefire-plugin.version>
     </properties>
+    <scm>
+       <connection>scm:git:https://github.com/walnikster/db-quarkus/artist</connection>
+       <developerConnection>scm:git:https://github.com/walnikster/db-quarkus/artist</developerConnection>
+       <url>scm:git:https://github.com/walnikster/db-quarkus/artist</url>
+    </scm>     
     <dependencyManagement>
         <dependencies>
             <dependency>

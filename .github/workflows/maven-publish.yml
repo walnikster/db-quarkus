@@ -75,6 +75,8 @@ jobs:
             path: dist  
     - name: build site
       run: mvn -B clean site --file pom.xml
+    - name: copy and assemble site
+      run: mkdir mysite && cp -r ./target/site mysite && cp -r ./customer/target/site mysite && cp -r ./artist/target/site mysite && cp -r ./vintage-store/target/site mysite 
     - name: Build with Jekyll
       uses: actions/jekyll-build-pages@v1
       with:

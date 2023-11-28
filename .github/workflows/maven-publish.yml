@@ -74,7 +74,7 @@ jobs:
             name: vintage-store
             path: dist  
     - name: build site
-      run: mvn -B clean site --file pom.xml
+      run: mvn -B clean package verify site --file pom.xml
     - name: copy and assemble site
       run: | 
         ls -ltra &&

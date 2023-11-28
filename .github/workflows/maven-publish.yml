@@ -6,6 +6,8 @@ name: Maven Package
 on:
   release:
     types: [created]
+  schedule:
+    - cron: '15 7 * * 1-5'  
   workflow_dispatch: 
     inputs:
       native:

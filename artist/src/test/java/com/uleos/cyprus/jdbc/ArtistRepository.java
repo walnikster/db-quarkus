@@ -20,7 +20,7 @@ public class ArtistRepository {
 
         Connection conn = dataSource.getConnection();
         String sql = "INSERT INTO t_artists (id, name, bio, created_date) VALUES (?, ?, ?, ?)";
-        artist.setId(randomGenerator.nextInt(Integer.MAX_VALUE - 1));
+        artist.setId((Long) randomGenerator.nextInt(Integer.MAX_VALUE - 1));
 
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setLong(1, artist.getId());

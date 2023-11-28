@@ -151,7 +151,7 @@
                         <id>report</id>
                         <phase>pre-site</phase>
                         <goals>
-                            <goal>report</goal>
+                            <goal>report-aggregate</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -206,7 +206,7 @@
                 <reportSets>
                     <reportSet>
                         <reports>
-                            <report>report</report>
+                            <report>report-aggregate</report>
                         </reports>
                     </reportSet>
                 </reportSets>

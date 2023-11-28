@@ -10,6 +10,9 @@ import java.util.Random;
 @ApplicationScoped
 public class ArtistRepository {
 
+
+    private Random randomGenerator = new Random();
+    
     @Inject
     private DataSource dataSource;
 
@@ -17,7 +20,7 @@ public class ArtistRepository {
 
         Connection conn = dataSource.getConnection();
         String sql = "INSERT INTO t_artists (id, name, bio, created_date) VALUES (?, ?, ?, ?)";
-        artist.setId(Math.abs(new Random().nextLong()));
+        artist.setId(randomGenerator.nextInt(Integer.MAX_VALUE - 1));
 
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setLong(1, artist.getId());

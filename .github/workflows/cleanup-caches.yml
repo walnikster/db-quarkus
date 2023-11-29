@@ -12,8 +12,9 @@ jobs:
           
           echo "Fetching list of cache key"
           cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L 100 | cut -f 1 )
-          echo " aaa $(gh actions-cache list -R $REPO -B $BRANCH| wc -l)"
-
+          echo "aaa $(gh actions-cache list -R $REPO -B $BRANCH | wc -l)"
+          x=$(gh actions-cache list -R $REPO -B $BRANCH | wc -l)
+          echo "aaa $x"
           
 
           ## Setting this to not fail the workflow while deleting cache keys. 

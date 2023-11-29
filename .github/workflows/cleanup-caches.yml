@@ -12,7 +12,7 @@ jobs:
           
           echo "Fetching list of cache key"
           cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L 100 | cut -f 1 )
-          x = $(gh actions-cache list -R $REPO -B $BRANCH -L 100)
+          x = $(gh actions-cache list -R $REPO -B $BRANCH| wc -l)
 
           echo "caches $x"
 

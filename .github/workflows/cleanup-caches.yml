@@ -19,7 +19,7 @@ jobs:
             then
               x = x - 2
               cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L $x -O asc -S last_accessed_at | cut -f 1 )
-              echo "aaa $(gh actions-cache list -R $REPO -B $BRANCH $x -O asc -S last_accessed_at | wc -l)"
+              echo "aaa $(gh actions-cache list -R $REPO -B $BRANCH -L $x -O asc -S last_accessed_at | wc -l)"
               ## Setting this to not fail the workflow while deleting cache keys. 
               set +e
               echo "Deleting caches..."

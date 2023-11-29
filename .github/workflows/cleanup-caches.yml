@@ -15,7 +15,7 @@ jobs:
           
           x=$(gh actions-cache list -R $REPO -B $BRANCH | wc -l)
           echo "aaa $x"
-          if (($x -gt 2));then
+          if (($x > 2));then
               echo "a"
               x = $x - 2
               echo "b"

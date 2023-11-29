@@ -15,9 +15,9 @@ jobs:
           
           x=$(gh actions-cache list -R $REPO -B $BRANCH | wc -l)
           echo "aaa $x"
-          if (($x > 2));then
+          if (($x > 5));then
               echo "a"
-              y=$((x-2))
+              y=$((x-5))
               echo "b"
               cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L $y --order asc --sort last-used | cut -f 1 )
               echo "c"

@@ -17,9 +17,13 @@ jobs:
           echo "aaa $x"
           if [x > 2] 
             then
+              echo "a"
               x = x - 2
+              echo "b"
               cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L $x -O asc -S last_accessed_at | cut -f 1 )
+              echo "c"
               echo "aaa $(gh actions-cache list -R $REPO -B $BRANCH -L $x -O asc -S last_accessed_at | wc -l)"
+              echo "d"
               ## Setting this to not fail the workflow while deleting cache keys. 
               set +e
               echo "Deleting caches..."

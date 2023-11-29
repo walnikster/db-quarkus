@@ -12,8 +12,10 @@ jobs:
           
           echo "Fetching list of cache key"
           cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L 100 | cut -f 1 )
+          x = $(gh actions-cache list -R $REPO -B $BRANCH -L 100)
 
-          echo gh actions-cache list -R $REPO -B $BRANCH -L 100
+          echo x
+          echo $x
 
           ## Setting this to not fail the workflow while deleting cache keys. 
           set +e
@@ -21,7 +23,7 @@ jobs:
           for cacheKey in $cacheKeysForPR
           do
               echo "Fetching list of cache key $cacheKey"
-              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+              ## gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
           done
           echo "Done"
         env:

@@ -29,7 +29,7 @@ jobs:
               for cacheKey in $cacheKeysForPR
               do
                   echo "Fetching list of cache key $cacheKey"
-                  ## gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+                  gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
               done
           fi
           echo "aaa $x"

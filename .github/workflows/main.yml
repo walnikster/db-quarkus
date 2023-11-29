@@ -18,7 +18,7 @@ jobs:
           echo "Deleting caches..."
           for cacheKey in $cacheKeysForPR
           do
-              echo "Fetching list of cache key ${{cacheKey}}"
+              echo "Fetching list of cache key $cacheKey"
               gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
           done
           echo "Done"
